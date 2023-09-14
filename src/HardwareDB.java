@@ -1,30 +1,45 @@
 import java.util.ArrayList;
 
-public class HardwareDB implements ICrud{
+public class HardwareDB implements ICrud<Integer, Hardware>{
 
-    private ArrayList <Hardware> Hardwares = new ArrayList<>();
+    private ArrayList <Hardware> hardwares = new ArrayList<>();
+
+
     @Override
-    public void create() {
-
+    public Hardware create(Hardware object) {
+        if (hardwares.add(object)){
+            return object;
+        }
+        return null;
     }
 
     @Override
-    public void delete() {
-
+    public void delete(Integer ID) {
+        if (ID < hardwares.size()){
+            hardwares.remove(ID);
+        }
     }
 
     @Override
-    public void update() {
-
+    public void update(Integer ID, Hardware object) {
+        if (ID < hardwares.size()){
+            hardwares.set(ID, object);
+        }
     }
 
     @Override
-    public void read() {
-
+    public Hardware read(Integer ID) {
+        if (ID < hardwares.size()){
+            return hardwares.get(ID);
+        }
+        return null;
     }
 
     @Override
-    public void readAll() {
-
+    public ArrayList readAll(Hardware object) {
+        for (Hardware hardware:hardwares) {
+            return null;
+        }
+        return null;
     }
 }

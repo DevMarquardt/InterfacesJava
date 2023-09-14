@@ -1,4 +1,4 @@
-public class Carburador extends Carro{
+public class Carburador extends ComponenteCarro {
     private int quantidadeCombustivel;
     private int nivel;
 

@@ -7,4 +7,12 @@ public class MemoriaRam extends Hardware{
         this.frequencia = frequencia;
         this.capacidade = capacidade;
     }
+
+    @Override
+    public String toString() {
+        return "MemoriaRam{" +
+                "frequencia=" + frequencia +
+                ", capacidade=" + capacidade +
+                "} " + super.toString();
+    }
 }

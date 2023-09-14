@@ -1,4 +1,4 @@
-public class Radiador extends Carro{
+public class Radiador extends ComponenteCarro {
     private int capacidade;
     private int temperatura;
 

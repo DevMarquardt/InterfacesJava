@@ -7,4 +7,12 @@ public class Processador extends Hardware{
         this.gHz = gHz;
         this.quantidadeNucleos = quantidadeNucleos;
     }
+
+    @Override
+    public String toString() {
+        return "Processador{" +
+                "gHz=" + gHz +
+                ", quantidadeNucleos=" + quantidadeNucleos +
+                "} " + super.toString();
+    }
 }

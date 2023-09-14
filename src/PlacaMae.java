@@ -7,4 +7,12 @@ public class PlacaMae extends Hardware{
         this.consumo = consumo;
         this.slotsRam = slotsRam;
     }
+
+    @Override
+    public String toString() {
+        return "PlacaMae{" +
+                "consumo=" + consumo +
+                ", slotsRam=" + slotsRam +
+                "} " + super.toString();
+    }
 }

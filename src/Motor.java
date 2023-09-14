@@ -1,4 +1,4 @@
-public class Motor extends Carro{
+public class Motor extends ComponenteCarro {
     private int cavalos;
     private int cilindradas;
 
