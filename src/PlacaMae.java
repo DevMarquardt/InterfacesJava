@@ -1,4 +1,4 @@
-public class PlacaMae extends Hardware{
+public class PlacaMae extends Hardware {
     private int consumo;
     private int slotsRam;
 

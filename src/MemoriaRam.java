@@ -1,4 +1,4 @@
-public class MemoriaRam extends Hardware{
+public class MemoriaRam extends Hardware {
     private int frequencia;
     private int capacidade;
 

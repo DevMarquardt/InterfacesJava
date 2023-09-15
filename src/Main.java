@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
-    static ComponenteCarroDB componenteCarroCRUD = new ComponenteCarroDB();
 
     public static void main(String[] args) {
         menuInicial();
@@ -12,11 +11,11 @@ public class Main {
         int opcao = 0;
         do {
             System.out.println("""
-                [1] - Opções componentes do carro
-                [2] - Opções componentes de hardware
-                [3] - Sair""");
+                    [1] - Opções componentes do carro
+                    [2] - Opções componentes de hardware
+                    [3] - Sair""");
             opcao = sc.nextInt();
-            switch (opcao){
+            switch (opcao) {
                 case 1:
                     menuComponenteCarro();
                     break;
@@ -29,15 +28,15 @@ public class Main {
                 default:
                     System.out.println("Opção inválida");
             }
-        }while(opcao != 3);
+        } while (opcao != 3);
     }
 
-    private static void menuHardware(){
-        int opcao =0;
+    private static void menuHardware() {
+        int opcao = 0;
         do {
             System.out.println(Hardware.menu());
             opcao = sc.nextInt();
-            switch (opcao){
+            switch (opcao) {
                 case 1:
                     cadastroProcessador();
                     break;
@@ -48,16 +47,16 @@ public class Main {
                     cadastrarMemoriaRAM();
                     break;
                 case 4:
-                    removerHarware();
+                    remover();
                     break;
                 case 5:
-                    atualizarHardware();
+                    atualizar();
                     break;
                 case 6:
-                    informacoesHardware();
+                    informacoes();
                     break;
                 case 7:
-                    informacoesTodosHardwares();
+                    informacoesTodos();
                     break;
                 case 8:
                     menuInicial();
@@ -65,35 +64,35 @@ public class Main {
                 default:
                     System.out.println("Opção inválida");
             }
-        }while (opcao!=8);
+        } while (opcao != 8);
     }
 
-    private static void menuComponenteCarro(){
-        int opcao =0;
+    private static void menuComponenteCarro() {
+        int opcao = 0;
         do {
             System.out.println(ComponenteCarro.menu());
             opcao = sc.nextInt();
-            switch (opcao){
+            switch (opcao) {
                 case 1:
-//                    cadastroCarburador();
+                    cadastroCarburador();
                     break;
                 case 2:
-//                    cadastroRadiador();
+                    cadastroRadiador();
                     break;
                 case 3:
-//                    cadastrarMotor();
+                    cadastrarMotor();
                     break;
                 case 4:
-//                    removerHarware();
+                    remover();
                     break;
                 case 5:
-//                    atualizarHardware();
+                    atualizar();
                     break;
                 case 6:
-//                    informacoesHardware();
+                    informacoes();
                     break;
                 case 7:
-//                    informacoesTodosHardwares();
+                    informacoesTodos();
                     break;
                 case 8:
                     menuInicial();
@@ -101,10 +100,58 @@ public class Main {
                 default:
                     System.out.println("Opção inválida");
             }
-        }while (opcao!=8);
+        } while (opcao != 8);
     }
 
-    public static Hardware cadastroProcessador(){
+    public static ComponenteCarro cadastrarMotor() {
+        System.out.println("Qual a serial do motor? ");
+        int serial = sc.nextInt();
+        System.out.println("Qual o preço do motor? ");
+        double preco = sc.nextDouble();
+        System.out.println("Qual a cor do motor? ");
+        String cor = sc.next();
+        System.out.println("Qual a quantidade de cavalos? ");
+        int cavalos = sc.nextInt();
+        System.out.println("Quantas cilindradas? ");
+        int cilindradas = sc.nextInt();
+        ComponenteCarro motor = new Motor(serial, preco, cor, cavalos, cilindradas);
+        ComponenteCarro.componenteCarroCRUD.create(motor);
+        return motor;
+    }
+
+    public static ComponenteCarro cadastroRadiador() {
+        System.out.println("Qual a serial do radiador? ");
+        int serial = sc.nextInt();
+        System.out.println("Qual o preço do radiador? ");
+        double preco = sc.nextDouble();
+        System.out.println("Qual a cor do radiador? ");
+        String cor = sc.next();
+        System.out.println("Qual a capacidade de agua? ");
+        int capacidade = sc.nextInt();
+        System.out.println("Qual a temperatura maxima? ");
+        int temperatura = sc.nextInt();
+        ComponenteCarro radiador = new Radiador(serial, preco, cor, capacidade, temperatura);
+        ComponenteCarro.componenteCarroCRUD.create(radiador);
+        return radiador;
+    }
+
+    public static ComponenteCarro cadastroCarburador() {
+        System.out.println("Qual a serial do carburador? ");
+        int serial = sc.nextInt();
+        System.out.println("Qual o preço do carburador? ");
+        double preco = sc.nextDouble();
+        System.out.println("Qual a cor do carburador? ");
+        String cor = sc.next();
+        System.out.println("Qual a quantidade de combustivel? ");
+        int quantidade = sc.nextInt();
+        System.out.println("Qual o nivel da boia? ");
+        int nivel = sc.nextInt();
+        ComponenteCarro carburador = new Carburador(serial, preco, cor, quantidade, nivel);
+        ComponenteCarro.componenteCarroCRUD.create(carburador);
+        return carburador;
+    }
+
+    public static Hardware cadastroProcessador() {
         System.out.println("Qual o nome do processador? ");
         String nome = sc.next();
         System.out.println("Qual a marca? ");
@@ -119,7 +166,8 @@ public class Main {
         Hardware.hardwareCRUD.create(processador);
         return processador;
     }
-    public static Hardware cadastroPlacaMae(){
+
+    public static Hardware cadastroPlacaMae() {
         System.out.println("Qual o nome da placa mãe? ");
         String nome = sc.next();
         System.out.println("Qual a marca? ");
@@ -135,8 +183,8 @@ public class Main {
         return placaMae;
     }
 
-    public static Hardware cadastrarMemoriaRAM(){
-        System.out.println("Qual o nome da placa memória? ");
+    public static Hardware cadastrarMemoriaRAM() {
+        System.out.println("Qual o nome da memória RAM? ");
         String nome = sc.next();
         System.out.println("Qual a marca? ");
         String marca = sc.next();
@@ -151,28 +199,117 @@ public class Main {
         return memoriaRAM;
     }
 
-    private static void removerHarware(){
-        System.out.println("Qual o ID do hardware? ");
-        Integer id = sc.nextInt();
-        Hardware.hardwareCRUD.delete(id);
+    private static void remover() {
+        int opcao = 0;
+        Integer id;
+        do {
+            System.out.println("""
+                    Qual o tipo de produto que você deseja remover? 
+                    [1] - Hardware
+                    [2] - Componente de Carro
+                    [3] - Voltar""");
+            opcao = sc.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Qual o ID do hardware? ");
+                    id = sc.nextInt();
+                    Hardware.hardwareCRUD.delete(id);
+                    break;
+                case 2:
+                    System.out.println("Qual o ID do componente do carro? ");
+                    id = sc.nextInt();
+                    ComponenteCarro.componenteCarroCRUD.delete(id);
+                case 3:
+                    menuInicial();
+                    break;
+                default:
+                    System.out.println("Erro");
+            }
+        } while (opcao != 3);
     }
 
-    private static void atualizarHardware(){
-        System.out.println("Qual o id do Hardware que você deseja atualizar? ");
-        Integer id = sc.nextInt();
-        Hardware.descobrirInstancia(id);
+    private static void atualizar() {
+        int opcao = 0;
+        Integer id;
+        do {
+            System.out.println("""
+                    Qual o tipo de produto que você deseja atualizar? 
+                    [1] - Hardware
+                    [2] - Componente de Carro
+                    [3] - Voltar""");
+            opcao = sc.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Qual o ID do hardware? ");
+                    id = sc.nextInt();
+                    Hardware.descobrirInstancia(id);
+                    break;
+                case 2:
+                    System.out.println("Qual o ID do componente do carro? ");
+                    id = sc.nextInt();
+                    ComponenteCarro.descobrirInstancia(id);
+                case 3:
+                    menuInicial();
+                    break;
+                default:
+                    System.out.println("Erro");
+            }
+        } while (opcao != 3);
     }
 
-    private static void informacoesHardware(){
-        System.out.println("Qual o id do hardware que você quer puxar as informações? ");
-        Integer id = sc.nextInt();
-        System.out.println(Hardware.hardwareCRUD.read(id).toString());
+    private static void informacoes() {
+        int opcao = 0;
+        Integer id;
+        do {
+            System.out.println("""
+                    Qual o tipo de produto que você deseja ver as informações? 
+                    [1] - Hardware
+                    [2] - Componente de Carro
+                    [3] - Voltar""");
+            opcao = sc.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Qual o ID do hardware? ");
+                    id = sc.nextInt();
+                    System.out.println(Hardware.hardwareCRUD.read(id).toString());
+                    break;
+                case 2:
+                    System.out.println("Qual o ID do componente do carro? ");
+                    id = sc.nextInt();
+                    System.out.println(ComponenteCarro.componenteCarroCRUD.read(id).toString());
+                case 3:
+                    menuInicial();
+                    break;
+                default:
+                    System.out.println("Erro");
+            }
+        } while (opcao != 3);
     }
 
-    private static void informacoesTodosHardwares(){
-        if ()
-        System.out.println(Hardware.hardwareCRUD.readAll());
+    private static void informacoesTodos() {
+        int opcao = 0;
+        Integer id;
+        do {
+            System.out.println("""
+                    Qual o tipo de produto que você deseja ver as informações? 
+                    [1] - Hardware
+                    [2] - Componente de Carro
+                    [3] - Voltar""");
+            opcao = sc.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.println(Hardware.hardwareCRUD.readAll());
+                    break;
+                case 2:
+                    System.out.println(ComponenteCarro.componenteCarroCRUD.readAll());
+                    break;
+                case 3:
+                    menuInicial();
+                    break;
+                default:
+                    System.out.println("Erro");
+            }
+        } while (opcao != 3);
     }
-
 }
 

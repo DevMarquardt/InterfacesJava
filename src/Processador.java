@@ -1,4 +1,4 @@
-public class Processador extends Hardware{
+public class Processador extends Hardware {
     private int gHz;
     private int quantidadeNucleos;
 

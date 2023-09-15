@@ -10,7 +10,7 @@ public class Hardware extends HardwareDB {
         this.preco = preco;
     }
 
-    public static String menu(){
+    public static String menu() {
         return """
                 [1] - Cadastrar Processador
                 [2] - Cadastrar Placa mãe
@@ -22,14 +22,12 @@ public class Hardware extends HardwareDB {
                 [8] - Sair para o menu anterior""";
     }
 
-    public static void descobrirInstancia(int id){
-        if (hardwareCRUD.read(id) instanceof Processador){
+    public static void descobrirInstancia(int id) {
+        if (hardwareCRUD.read(id) instanceof Processador) {
             hardwareCRUD.update(id, Main.cadastroProcessador());
-        }
-        else if (hardwareCRUD.read(id) instanceof MemoriaRam){
+        } else if (hardwareCRUD.read(id) instanceof MemoriaRam) {
             hardwareCRUD.update(id, Main.cadastrarMemoriaRAM());
-        }
-        else{
+        } else {
             hardwareCRUD.update(id, Main.cadastroPlacaMae());
         }
     }
