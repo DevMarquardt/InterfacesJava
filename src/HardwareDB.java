@@ -15,9 +15,7 @@ public class HardwareDB implements ICrud<Integer, Hardware>{
 
     @Override
     public void delete(Integer ID) {
-        if (ID < hardwares.size()){
-            hardwares.remove(ID);
-        }
+        hardwares.remove(hardwares.get(ID));
     }
 
     @Override
@@ -36,10 +34,7 @@ public class HardwareDB implements ICrud<Integer, Hardware>{
     }
 
     @Override
-    public ArrayList readAll(Hardware object) {
-        for (Hardware hardware:hardwares) {
-            return null;
-        }
-        return null;
+    public ArrayList<Hardware> readAll() {
+        return hardwares;
     }
 }

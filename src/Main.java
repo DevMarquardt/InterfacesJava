@@ -69,7 +69,39 @@ public class Main {
     }
 
     private static void menuComponenteCarro(){
-
+        int opcao =0;
+        do {
+            System.out.println(ComponenteCarro.menu());
+            opcao = sc.nextInt();
+            switch (opcao){
+                case 1:
+//                    cadastroCarburador();
+                    break;
+                case 2:
+//                    cadastroRadiador();
+                    break;
+                case 3:
+//                    cadastrarMotor();
+                    break;
+                case 4:
+//                    removerHarware();
+                    break;
+                case 5:
+//                    atualizarHardware();
+                    break;
+                case 6:
+//                    informacoesHardware();
+                    break;
+                case 7:
+//                    informacoesTodosHardwares();
+                    break;
+                case 8:
+                    menuInicial();
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
+        }while (opcao!=8);
     }
 
     public static Hardware cadastroProcessador(){
@@ -138,7 +170,8 @@ public class Main {
     }
 
     private static void informacoesTodosHardwares(){
-//        System.out.println(Hardware.hardwareCRUD.readAll().toString());
+        if ()
+        System.out.println(Hardware.hardwareCRUD.readAll());
     }
 
 }

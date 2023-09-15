@@ -5,5 +5,5 @@ public interface ICrud <ID, T>{
     void delete(Integer ID);
     void update(Integer ID, T object );
     T read(Integer ID);
-    ArrayList<T> readAll(T object);
+    ArrayList<T> readAll();
 }

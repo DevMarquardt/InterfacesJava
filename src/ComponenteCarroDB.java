@@ -25,7 +25,7 @@ public class ComponenteCarroDB implements ICrud<Integer, ComponenteCarro>{
     }
 
     @Override
-    public ArrayList<ComponenteCarro> readAll(ComponenteCarro object) {
+    public ArrayList<ComponenteCarro> readAll() {
         return null;
     }
 }
